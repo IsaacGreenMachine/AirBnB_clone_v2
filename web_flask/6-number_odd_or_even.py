@@ -23,8 +23,8 @@ def hbnb():
 def cRoute(text):
     """displays on any child of /c"""
     if '_' in text:
-        newText = text.replace('_', ' ')
-    return 'c {}'.format(newText)
+        text = text.replace('_', ' ')
+    return 'C {}'.format(text)
 
 
 @app.route('/python')
