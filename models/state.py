@@ -15,7 +15,7 @@ class State(BaseModel, Base):
 
     if environ['HBNB_TYPE_STORAGE'] == "db":
         cities = relationship("City", back_populates="state")
-        
+
     else:
         @property
         def cities(self):
