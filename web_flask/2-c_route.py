@@ -22,7 +22,7 @@ def cRoute(text):
     """displays on any child of /c"""
     if '_' in text:
         text = text.replace('_', ' ')
-    return 'c {}'.format(text)
+    return 'C {}'.format(text)
 
 
 # will run without using flask run. Now can run as a python file
