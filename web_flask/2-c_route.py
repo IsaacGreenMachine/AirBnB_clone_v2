@@ -21,8 +21,8 @@ def hbnb():
 def cRoute(text):
     """displays on any child of /c"""
     if '_' in text:
-        newText = text.replace('_', ' ')
-    return 'c {}'.format(newText)
+        text = text.replace('_', ' ')
+    return 'c {}'.format(text)
 
 
 # will run without using flask run. Now can run as a python file
