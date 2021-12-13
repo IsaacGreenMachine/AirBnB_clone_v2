@@ -7,6 +7,6 @@ from sqlalchemy import ForeignKey
 
 
 class Amenity(BaseModel, Base):
-    """gives the amenities available for a place"""
+    '''gives the amenities available for a place'''
     __tablename__ = "amenities"
     name = Column(String(128), nullable=False)

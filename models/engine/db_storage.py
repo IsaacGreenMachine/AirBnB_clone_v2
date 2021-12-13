@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 from sqlalchemy import create_engine
 from os import environ
 from sqlalchemy.orm import backref, relationship, session, sessionmaker
@@ -10,23 +9,23 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-"""
+'''
 classes = {
             'User': User, 'Place': Place,
             'State': State, 'City': City, 'Amenity': Amenity,
             'Review': Review
             }
-"""
+'''
 classes = [State, City, User, Place, Review, Amenity]
 
 
 class DBStorage:
-    """this is the creation of our storage object"""
+    '''this is the creation of our storage object'''
     __engine = None
     __session = None
 
     def __init__(self):
-        """initializes an storage object"""
+        '''initializes an storage object'''
         HBNB_MYSQL_USER = environ.get('HBNB_MYSQL_USER')
         HBNB_MYSQL_PWD = environ.get('HBNB_MYSQL_PWD')
         HBNB_MYSQL_HOST = environ.get('HBNB_MYSQL_HOST')
@@ -45,7 +44,7 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """returns all items or all items of a specific class"""
+        '''returns all items or all items of a specific class'''
         # return dict {cls.ID: <object>}
         newDict = {}
         if cls is None:
@@ -60,26 +59,26 @@ class DBStorage:
         return newDict
 
     def new(self, obj):
-        """Creates new item"""
+        '''Creates new item'''
         self.__session.add(obj)
 
     def save(self):
-        """saves item"""
+        '''saves item'''
         self.__session.commit()
 
     def delete(self, obj=None):
-        """deletes an item"""
+        '''deletes an item'''
         if obj:
             self.__session.query.filter_by(id=obj.id).delete()
 
     def reload(self):
-        """reloads the storage object"""
+        '''reloads the storage object'''
         Base.metadata.create_all(self.__engine)
         sessionFactory = sessionmaker(bind=self.__engine,
                                       expire_on_commit=False)
         SessionObj = scoped_session(sessionFactory)
         self.__session = SessionObj()
-
+    
     def close(self):
         """closing SQLAlchemy session"""
         self.__session.close()
