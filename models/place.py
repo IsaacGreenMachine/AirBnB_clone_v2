@@ -40,7 +40,7 @@ class Place(BaseModel, Base):
     except Exception as ex:
         @property
         def reviews(self):
-            '''getter for reviews'''
+            """getter for reviews"""
             reviews_list = models.storage.all(type(Review))
             matching_reviews = []
             for i in reviews_list:
@@ -50,7 +50,7 @@ class Place(BaseModel, Base):
 
         @property
         def amenities(self):
-            '''getter for amenities'''
+            """getter for amenities"""
             amenities_list = models.storage.all(Amenity)
             matching_amenities = []
             for i in amenities_list:
@@ -60,6 +60,6 @@ class Place(BaseModel, Base):
 
         @amenities.setter
         def size(self, amenity):
-            '''setter for amenities'''
+            """setter for amenities"""
             if isinstance(amenity, Amenity):
                 self.amenity_ids.append(amenity.id)

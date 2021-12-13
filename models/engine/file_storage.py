@@ -56,9 +56,7 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
-    def delete(self, obj):
-        self.__objects.pop(type(obj).__name__ + "." + str(obj.id))
-
-    def close(self):
-        """deserializing the JSON file to objects"""
-        self.reload()
+    def delete(self, obj=None):
+        """This method deletes an entry"""
+        if obj:
+            self.__objects.pop(type(obj).__name__ + "." + str(obj.id))
