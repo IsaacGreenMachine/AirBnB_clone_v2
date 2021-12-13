@@ -60,7 +60,7 @@ class FileStorage:
         """This method deletes an entry"""
         if obj:
             self.__objects.pop(type(obj).__name__ + "." + str(obj.id))
-    
+
     def close(self):
         '''closes json'''
         self.reload()
