@@ -19,7 +19,7 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             '''getter for cities'''
-            #cities_list = models.storage.all(type(City))
+            # cities_list = models.storage.all(type(City))
             cities_list = models.storage.all(City)
             matching_cities = []
             for i in cities_list:
