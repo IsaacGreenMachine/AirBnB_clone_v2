@@ -58,7 +58,7 @@ class FileStorage:
 
     def delete(self, obj):
         self.__objects.pop(type(obj).__name__ + "." + str(obj.id))
-    
+
     def close(self):
         """deserializing the JSON file to objects"""
         self.reload()
